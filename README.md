@@ -1,4 +1,5 @@
-# ♻️ Global Solution | Protech the Future | Turma 1ESPA
+# ♻️ Global Solution | Protech the Future - Turma 1ESPA
+
 #### 🔗 Link para a pag
 #### 🔗 Link do repositório do projeto: https://github.com/GrupoCodeNexus/GS-WebDev25
 
