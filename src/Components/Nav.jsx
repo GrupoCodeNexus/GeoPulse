@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,33 +14,33 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-slate-950 text-white px-6 py-4 shadow-lg border-b border-emerald-600">
+    <nav className="bg-cyan-500 text-white px-6 py-4 shadow-lg">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-3xl font-extrabold text-emerald-400">Code Nexus</div>
+        <img src={logo} alt="logo-code-nexus" className="w-15"/>
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-6 text-sm font-medium">
-            <li><a href="/" className="transition duration-300 hover:text-emerald-300">Início</a></li>
-            <li><a href="#" className="transition duration-300 hover:text-emerald-300">Nossa Solução</a></li>
-            <li><a href="#" className="transition duration-300 hover:text-emerald-300">Sobre Nós</a></li>
-            <li><a href="#" className="transition duration-300 hover:text-emerald-300">Contato</a></li>
+            <li><a href="/" className="transition duration-300 hover:text-cyan-800">Início</a></li>
+            <li><a href="#" className="transition duration-300 hover:text-cyan-800">Nossa Solução</a></li>
+            <li><a href="#" className="transition duration-300 hover:text-cyan-800">Sobre Nós</a></li>
+            <li><a href="#" className="transition duration-300 hover:text-cyan-800">Contato</a></li>
           </ul>
           <button
             onClick={clickColaborador}
-            className="ml-6 px-6 py-2 rounded-full text-sm font-semibold 
-                       bg-gradient-to-r from-emerald-600 to-cyan-500 text-white 
-                       hover:from-emerald-700 hover:to-cyan-600 
-                       shadow-md hover:cursor-pointer hover:shadow-lg transition duration-300 ease-in-out 
-                       focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-950"
+            className="ml-6 px-6 py-2 rounded-full text-sm font-bold transition duration-600 ease-in-out
+                       bg-gradient-to-l from-cyan-600 to-gray-400 text-white 
+                       hover:from-gray-500 hover:to-cyan-700 
+                       shadow-md hover:cursor-pointer hover:shadow-lg 
+                       focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-cyan-2 focus:ring-offset-slate-950"
           >
             Área do Colaborador
           </button>
         </div>
 
         {/* Mobile menu icon */}
-        <button onClick={toggleMenu} className="md:hidden text-3xl text-emerald-400">
+        <button onClick={toggleMenu} className="md:hidden text-3xl text-white">
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
