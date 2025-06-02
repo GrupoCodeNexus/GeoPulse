@@ -16,18 +16,47 @@ app.use(express.json()); //para ler arquivos json
 
 // Estrutura de acesso/Login do usuário no sistema (Ainda não finalizado) 
 
-// Rota de login
-app.post('/login')
-
-// Get-Buscar usuários
-app.get('/login', async(req, res) =>{
+// Rota de login com POSt para receber inputs
+app.post('/login', async (req, res) => {
     try{
-        const file = path.join(__dirname, 'data','users.json');
-    } catch (error) {
-        console.log("Erro ao procurar usuários", error)
-        res.status(500).json({message:"Erro ao buscar usuários"})
+        const { email, senha } = req.body;
+
+        if (!email || !senha) {
+            return res.status(400).json({ message: "Email e senha são obrigatórios."})
+        }
+        // Constroi o caminho do arquivo JSON
+        const usersFilePath = path.join(__dirname, 'data', 'users.json');
+
+        // Ler o arquivo
+        const userData = await fs.readFile(usersFilePath, 'utf8'); // utf8=codificação em bits dos caracteres
+        const users = JSON.parse(userData); //Converte em JSON para objeto em JS
+        const user = user.find( u => u.email === email && u.senha === senha) //procura email e senha
+
+        if (user) {
+            res.status(200).json({ message: "Login bem sucedido", user: { nome: user.nome, email: user.nome }})
+        } else {
+            res.status(401).json({ message: "Email ou senha incorretos."})
+        }
+
+    }catch (error){
+        if (error.code === 'ENOENT' ) {
+            console.error("Erro: Arquivo user.json não encontrado", error);
+            return res.status(500).json({message: "Erro interno no Servidor: Arquivo de usuário não encontrado."})
+        }
+        console.error("Erro ao processar login: ", error);
+        res.status(500).json({ message: "Erro interno do servidor ao processar o login. "})
     }
 })
+
+// // Get-Buscar usuários
+// app.get('/login', async(req, res) =>{
+//     try{
+//         const file = path.join(__dirname, 'data','users.json');
+//     } catch (error) {
+//         console.log("Erro ao procurar usuários", error)
+//         res.status(500).json({message:"Erro ao buscar usuários"})
+//     }
+// })
 
 // Rodar o servidor
 app.listen(Port, () =>{
