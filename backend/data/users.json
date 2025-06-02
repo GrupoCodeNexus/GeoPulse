@@ -2,11 +2,11 @@
   {
     "nome":"admin",
     "email": "adm@codenexus.com",
-    "password": "123456"
+    "senha": "123456"
   },
   {
     "nome":"admin2",
     "email": "dev@codenexus.com",
-    "password": "123"
+    "senha": "123"
   }
 ]

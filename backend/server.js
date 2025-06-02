@@ -30,7 +30,7 @@ app.post('/login', async (req, res) => {
         // Ler o arquivo
         const userData = await fs.readFile(usersFilePath, 'utf8'); // utf8=codificação em bits dos caracteres
         const users = JSON.parse(userData); //Converte em JSON para objeto em JS
-        const user = user.find( u => u.email === email && u.senha === senha) //procura email e senha
+        const user = users.find( u => u.email === email && u.senha === senha) //procura email e senha
 
         if (user) {
             res.status(200).json({ message: "Login bem sucedido", user: { nome: user.nome, email: user.nome }})
@@ -40,7 +40,7 @@ app.post('/login', async (req, res) => {
 
     }catch (error){
         if (error.code === 'ENOENT' ) {
-            console.error("Erro: Arquivo user.json não encontrado", error);
+            console.error("Erro: Arquivo users.json não encontrado", error);
             return res.status(500).json({message: "Erro interno no Servidor: Arquivo de usuário não encontrado."})
         }
         console.error("Erro ao processar login: ", error);
