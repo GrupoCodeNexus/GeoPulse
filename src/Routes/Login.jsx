@@ -1,30 +1,43 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaUser, FaLock } from "react-icons/fa";
-import users from "../Data/users.json"; // importa o JSON local
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false) //Indicar carregamento
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); //Limpar qualquer erro anterior
+    setLoading(true)
 
-    // Verifica se usuário existe no JSON
-    const user = users.find(
-      (u) => u.email === email && u.password === password
-    );
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, senha: password}), //Envio do email e senha no corpo da req
+      });
+      
+      const data = await response.json();
 
-    if (user) {
-      // Limpa erro, autenticação "bem-sucedida"
-      setError("");
-      navigate("/cadastrar");
-    } else {
-      setError("E-mail ou senha inválidos");
+      if (response.ok){
+        console.log("Login bem sucedido: ", data.user);
+        navigate("/cadastrar")
+      } else{
+        setError(data.message || "Ocorreu um erro no login. Tente novamente.");
+      }
+    } catch (error) {
+      console.error("Error ao conectar com o servidor: ", error);
+      setError("Não foi possivel conectar ao servidor")
+    } finally {
+      setLoading(false); // devolve o estado de carregamento para falso
     }
-  };
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -47,6 +60,7 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              disabled={loading} // Desabilita o input durante o carregamento
             />
           </div>
 
@@ -59,14 +73,23 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              disabled={loading} // Desabilita o input durante o carregamento
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition flex items-center justify-center"
+            disabled={loading} // Desabilita o botão durante o carregamento
           >
-            Entrar
+            {loading ? (
+              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            ) : (
+              "Entrar"
+            )}
           </button>
         </form>
 
