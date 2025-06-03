@@ -1,4 +1,7 @@
-import { FaRocket, FaUsers, FaHeartbeat } from "react-icons/fa";
+import { FaRocket, FaUsers, FaHeartbeat, FaGithub, FaLinkedin } from "react-icons/fa";
+import francisco from '../assets/francisco.png';
+import kayque from '../assets/kayque.png';
+import matheus from '../assets/matheus.png';
 
 const Sobre = () => {
   return (
@@ -42,32 +45,59 @@ const Sobre = () => {
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
           {[
             {
-              nome: "Camila Ferreira",
-              funcao: "Desenvolvedora Full Stack",
-              img: "https://images.unsplash.com/photo-1614289323161-7165cd65c230?auto=format&fit=crop&w=500&q=80",
+              nome: "Francisco Vargas",
+              funcao: "Desenvolvedor",
+              img: francisco,
+              github: "https://github.com/Franciscov25",
+              linkedin: "https://linkedin.com/in/franciscovargas7"
             },
             {
-              nome: "Lucas Martins",
-              funcao: "Designer UX/UI",
-              img: "https://images.unsplash.com/photo-1603415526960-f8f76b38d33d?auto=format&fit=crop&w=500&q=80",
+              nome: "Matheus Eiki",
+              funcao: "Desenvolvedor",
+              img: matheus,
+              github: "https://github.com/matheuseiki",
+              linkedin: "https://www.linkedin.com/in/matheus-e-ikeda-943889331/"
             },
             {
-              nome: "Ana Souza",
-              funcao: "Engenheira de Dados",
-              img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=500&q=80",
+              nome: "Kayque Carvalho",
+              funcao: "Desenvolvedor",
+              img: kayque,
+              github: "https://github.com/Kay-Carv",
+              linkedin: "https://www.linkedin.com/in/kayque-carvalho-49a190283/"
             },
           ].map((membro, index) => (
-            <div key={index} className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition">
+            <div key={index} className="rounded-xl overflow-hidden border-2 border-cyan-200 shadow-cyan-200 hover:shadow-xl transition">
               <img src={membro.img} alt={membro.nome} className="w-full h-64 object-cover" />
               <div className="bg-white p-4">
                 <h3 className="font-semibold text-lg">{membro.nome}</h3>
-                <p className="text-sm text-gray-500">{membro.funcao}</p>
+                <p className="text-sm text-gray-500 mb-3">{membro.funcao}</p>
+                <div className="flex justify-center gap-4">
+                  {membro.github && (
+                    <a
+                      href={membro.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-black transition"
+                    >
+                      <FaGithub className="text-xl" />
+                    </a>
+                  )}
+                  {membro.linkedin && (
+                    <a
+                      href={membro.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-blue-700 transition"
+                    >
+                      <FaLinkedin className="text-xl" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
-
     </div>
   );
 };
