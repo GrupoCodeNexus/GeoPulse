@@ -1,130 +1,82 @@
-import { useState } from "react";
-import { FaTools, FaRecycle, FaHeartbeat } from "react-icons/fa";
-import bg02 from "../assets/bg02.png";
+import { FaRobot, FaLeaf, FaHandsHelping } from "react-icons/fa";
+import { GiTechnoHeart } from "react-icons/gi";
 
-const solutionCards = [
-  {
-    id: 1,
-    icon: <FaTools className="text-blue-600 text-5xl" />,
-    title: "Tecnologia Aplicada",
-    description:
-      "Integramos drones, IA e sensores para otimizar a logística, comunicação e avaliação de áreas de risco em tempo real.",
-    color: "bg-blue-100",
-  },
-  {
-    id: 2,
-    icon: <FaRecycle className="text-green-600 text-5xl" />,
-    title: "Sustentabilidade",
-    description:
-      "Nossas soluções usam energia solar, materiais recicláveis e práticas sustentáveis para reduzir o impacto ambiental mesmo em zonas de crise.",
-    color: "bg-green-100",
-  },
-  {
-    id: 3,
-    icon: <FaHeartbeat className="text-red-500 text-5xl" />,
-    title: "Foco na Vida",
-    description:
-      "Todas as tecnologias e estratégias visam um único objetivo: salvar vidas com empatia, rapidez e responsabilidade social.",
-    color: "bg-red-100",
-  },
-];
-
-export default function NossaSolucao() {
-  const [activeCard, setActiveCard] = useState(null);
-
-  const toggleCard = (id) => {
-    setActiveCard((prev) => (prev === id ? null : id));
-  };
-
+export default function Solucao() {
   return (
-    <div className="px-6 lg:px-20 py-10 bg-white">
-      {/* Hero */}
-      <div className="-mt-10 md:-mx-20 lg:-mx-20 mb-12">
-        <img src={bg02} alt="Nossa Solução" className="w-full h-auto" />
-      </div>
-
-      {/* Título */}
-      <section className="text-center max-w-4xl mx-auto mb-16">
-        <h2 className="text-4xl font-extrabold text-cyan-500 mb-4">Nossa Solução</h2>
-        <p className="text-gray-700 text-lg">
-          Inovamos para transformar emergências em oportunidades de reconstrução com dignidade, sustentabilidade e velocidade.
-        </p>
+    <div className="bg-white text-gray-800">
+      {/* Hero com imagem e sobreposição */}
+      <section className="mt-20 bg-cyan-900 text-white py-20 px-6 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+            Inovação com Propósito: <br></br><span className="text-cyan-400">GEO Pulse</span>
+          </h1>
+          <p className="text-lg text-gray-100 md:text-xl">
+            Soluções inteligentes para emergências humanitárias, com tecnologia, empatia e sustentabilidade.
+          </p>
+        </div>
       </section>
 
-      {/* Cards com Animação */}
-      <section className="space-y-10">
-        {solutionCards.map((card) => {
-          const isOpen = activeCard === card.id;
-          return (
-            <div
-              key={card.id}
-              onClick={() => toggleCard(card.id)}
-              className="cursor-pointer perspective"
-            >
-              <div
-                className={`relative w-full h-56 md:h-48 transform-style-preserve-3d transition-transform duration-700 rounded-2xl shadow-md shadow-cyan-200 ${
-                  isOpen ? "rotate-y-180" : ""
-                }`}
-              >
-                {/* Frente */}
-                <div className="absolute inset-0 backface-hidden bg-gray-50 rounded-2xl flex flex-row items-center overflow-hidden">
-                  <div className={`w-1/3 h-full flex items-center justify-center ${card.color}`}>
-                    {card.icon}
-                  </div>
-                  <div className="w-2/3 px-6">
-                    <h3 className="text-2xl font-semibold text-gray-800">{card.title}</h3>
-                    <p className="text-cyan-500 text-xl mt-2">+</p>
-                  </div>
-                </div>
+      {/* Seção de Destaques */}
+      <section className="py-16 px-6 lg:px-20 bg-gray-50">
+        <h2 className="text-center text-3xl font-bold text-cyan-600 mb-12">Como Atuamos</h2>
+        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          <div className="bg-cyan-50 p-6 rounded-2xl shadow-md shadow-cyan-200 hover:shadow-xl transition">
+            <FaRobot className="text-5xl text-cyan-500 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Automação Inteligente</h3>
+            <p>
+              Drones, IA e sensores atuam juntos para mapear e responder a crises com agilidade e precisão em tempo real.
+            </p>
+          </div>
+          <div className="bg-cyan-50 p-6 rounded-2xl border-2 border-cyan-300 shadow-md shadow-cyan-200 hover:shadow-xl transition">
+            <FaLeaf className="text-5xl text-green-500 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Consciência Ecológica</h3>
+            <p>
+              Priorizamos materiais recicláveis, energia solar, satélites e práticas sustentáveis em toda a cadeia de inovação.
+            </p>
+          </div>
+          <div className="bg-cyan-50 p-6 rounded-2xl shadow-md shadow-cyan-200 hover:shadow-xl transition">
+            <FaHandsHelping className="text-5xl text-cyan-400 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Impacto Social Real</h3>
+            <p>
+              Ajudamos as pessoas a se protegerem com soluções tecnológicas centradas no ser humano.
+            </p>
+          </div>
+        </div>
+      </section>
 
-                {/* Verso */}
-                <div className="absolute inset-0 backface-hidden rotate-y-180 bg-cyan-100 border-2 border-cyan-500 rounded-2xl p-6 flex items-center">
-                  <p className="text-gray-700 text-sm text-justify">{card.description}</p>
-                  <span className="absolute top-4 right-6 text-2xl text-cyan-500 font-bold">
-                    &ndash;
-                  </span>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+      {/* Bloco com frase de impacto */}
+      <section className="bg-cyan-600 text-white py-16 text-center px-6">
+        <GiTechnoHeart className="mx-auto text-6xl mb-6" />
+        <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          A tecnologia a serviço da vida
+        </h3>
+        <p className="text-lg max-w-3xl mx-auto">
+          Unimos inovação, sustentabilidade e responsabilidade social para transformar realidades com dignidade e eficiência.
+        </p>
       </section>
 
       {/* Missão */}
-      <section className="mt-20 bg-cyan-50 rounded-xl p-10 text-center shadow-inner">
-        <h3 className="text-2xl font-bold text-cyan-700 mb-4">Missão do Projeto</h3>
-        <p className="text-gray-700 max-w-3xl mx-auto text-md">
-          Criar soluções tecnológicas que respeitam o meio ambiente e colocam o ser humano no centro das decisões, promovendo resiliência em contextos de vulnerabilidade.
+      <section className="py-16 px-6 lg:px-20 text-center">
+        <h4 className="text-2xl md:text-3xl font-bold text-cyan-700 mb-6">Nossa Missão</h4>
+        <p className="text-gray-700 max-w-3xl mx-auto text-lg">
+          Desenvolver soluções tecnológicas que respeitam o planeta e colocam o ser humano no centro das decisões, promovendo resiliência, inclusão e esperança.
         </p>
       </section>
 
-      {/* Chamada para Ação */}
-      <section className="mt-16 bg-cyan-600 text-white rounded-2xl p-10 text-center shadow-xl">
-        <h4 className="text-3xl font-bold mb-4">Junte-se a nós nessa missão</h4>
-        <p className="text-lg mb-6">
-          Sua participação pode transformar comunidades e salvar vidas. Seja parte da inovação que constrói um futuro mais justo e seguro.
+      {/* CTA Final */}
+      <section className="bg-cyan-50 py-16 px-6 lg:px-20 text-center">
+        <h4 className="text-3xl font-bold text-cyan-800 mb-4">
+          Faça parte da transformação
+        </h4>
+        <p className="text-md md:text-lg mb-6 max-w-2xl mx-auto text-gray-700">
+          Juntos podemos levar soluções inovadoras para quem mais precisa. A sua participação pode salvar vidas.
         </p>
-        <button className="bg-amber-200 text-cyan-600 font-semibold px-6 py-3 rounded-xl hover:bg-amber-300 hover:cursor-pointer transition">
-          Quero contribuir
-        </button>
+        <a href="https://github.com/GrupoCodeNexus">
+          <button className="bg-cyan-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-cyan-700 transition hover:cursor-pointer">
+            Quero contribuir
+          </button>
+        </a>
       </section>
-
-      {/* Estilo de animação */}
-      <style jsx>{`
-        .perspective {
-          perspective: 1000px;
-        }
-        .transform-style-preserve-3d {
-          transform-style: preserve-3d;
-        }
-        .backface-hidden {
-          backface-visibility: hidden;
-          transform-style: preserve-3d;
-        }
-        .rotate-y-180 {
-          transform: rotateY(180deg);
-        }
-      `}</style>
     </div>
   );
 }
