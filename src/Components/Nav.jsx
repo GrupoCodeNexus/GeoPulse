@@ -9,7 +9,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const whiteBgRoutes = ["/solucao", "/sobre"]; // ajuste conforme novas rotas
+  const whiteBgRoutes = ["/solucao", "/sobre", "/login"]; // ajuste conforme novas rotas
   const isWhiteBgPage = whiteBgRoutes.includes(location.pathname);
 
   useEffect(() => {
@@ -40,17 +40,17 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-6 text-sm font-medium">
             <li>
-              <a href="/" className="transition duration-300 hover:text-gray-100">
+              <a href="/" className="transition duration-300 hover:text-cyan-700">
                 Início
               </a>
             </li>
             <li>
-              <a href="/solucao" className="transition duration-300 hover:text-gray-100">
+              <a href="/solucao" className="transition duration-300 hover:text-cyan-700">
                 Nossa Solução
               </a>
             </li>
             <li>
-              <a href="/sobre" className="transition duration-300 hover:text-gray-100">
+              <a href="/sobre" className="transition duration-300 hover:text-cyan-700">
                 Sobre Nós
               </a>
             </li>
