@@ -41,8 +41,8 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+      <div className="w-full max-w-md bg-cyan-50 p-8 rounded-lg shadow-lg shadow-cyan-300 hover:shadow-cyan-400">
+        <h2 className="text-3xl font-extrabold mb-6 text-center text-cyan-900">
           Área do Colaborador
         </h2>
 
@@ -79,7 +79,7 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition flex items-center justify-center"
+            className="w-full bg-cyan-600 text-white py-2 rounded-md hover:bg-cyan-700 shadow-md shadow-cyan-200 hover:shadow-cyan-300 transition flex items-center justify-center cursor-pointer"
             disabled={loading} // Desabilita o botão durante o carregamento
           >
             {loading ? (
@@ -95,7 +95,7 @@ export default function LoginPage() {
 
         <p className="mt-4 text-center text-sm text-gray-500">
           Esqueceu sua senha?{" "}
-          <a href="#" className="text-blue-600 hover:underline">
+          <a href="#" className="text-cyan-700 hover:underline">
             Recuperar acesso
           </a>
         </p>
