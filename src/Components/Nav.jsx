@@ -9,7 +9,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const whiteBgRoutes = ["/solucao", "/sobre", "/login"]; // ajuste conforme novas rotas
+  const whiteBgRoutes = ["/solucao", "/sobre", "/login", "/cadastrar"]; // ajuste conforme novas rotas
   const isWhiteBgPage = whiteBgRoutes.includes(location.pathname);
 
   useEffect(() => {
