@@ -28,9 +28,9 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-3 text-sky-300">Empresa</h3>
           <ul className="space-y-2 text-sm text-gray-200">
-            <li><a href="#" className="hover:text-sky-300 transition duration-200">Sobre nós</a></li>
-            <li><a href="#" className="hover:text-sky-300 transition duration-200">Nossa Missão</a></li>
-            <li><a href="#" className="hover:text-sky-300 transition duration-200">Projetos</a></li>
+            <li><a href="/sobre" className="hover:text-sky-300 transition duration-200">Sobre nós</a></li>
+            <li><a href="/sobre" className="hover:text-sky-300 transition duration-200">Nossa Missão</a></li>
+            <li><a href="/solucao" className="hover:text-sky-300 transition duration-200">Projetos</a></li>
           </ul>
         </div>
 
@@ -40,7 +40,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm text-gray-200">
             <li><a href="#" className="hover:text-sky-300 transition duration-200">FAQ</a></li>
             <li><a href="#" className="hover:text-sky-300 transition duration-200">Fale Conosco</a></li>
-            <li><a href="#" className="hover:text-sky-300 transition duration-200">Central de Ajuda</a></li>
+            <li><a href="/login" className="hover:text-sky-300 transition duration-200">Área do colaborador</a></li>
           </ul>
         </div>
 
