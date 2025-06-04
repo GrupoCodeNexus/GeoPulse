@@ -1,12 +1,8 @@
 [
   {
-    "nome":"admin",
-    "email": "adm@codenexus.com",
-    "senha": "123456"
-  },
-  {
-    "nome":"admin2",
-    "email": "dev@codenexus.com",
-    "senha": "123"
+    "id": "69ea075e-c382-4391-91b3-d2f1a50b4bf0",
+    "nome": "dev",
+    "email": "dev@gmail.com",
+    "senha": "1234"
   }
 ]

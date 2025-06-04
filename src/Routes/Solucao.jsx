@@ -1,7 +1,33 @@
-import { FaRobot, FaLeaf, FaHandsHelping } from "react-icons/fa";
-import { GiTechnoHeart } from "react-icons/gi";
+import { useState, useEffect } from "react" // Importa useState e useEffect
+import { FaRobot, FaLeaf, FaHandsHelping, FaRegNewspaper } from "react-icons/fa" // Adiciona FaRegNewspaper
+import { GiTechnoHeart } from "react-icons/gi"
 
 export default function Solucao() {
+  const [updates, setUpdates] = useState([]) // Estado para armazenar as atualizações
+  const [loadingUpdates, setLoadingUpdates] = useState(true) // Estado para indicar carregamento das atualizações
+  const [errorUpdates, setErrorUpdates] = useState(null) // Estado para erros ao buscar atualizações
+
+  // useEffect para buscar as atualizações quando o componente é montado
+  useEffect(() => {
+    const fetchUpdates = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/updates")
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json()
+        setUpdates(data)
+      } catch (error) {
+        console.error("Erro ao buscar atualizações:", error)
+        setErrorUpdates("Não foi possível carregar as atualizações. Tente novamente mais tarde.")
+      } finally {
+        setLoadingUpdates(false)
+      }
+    }
+
+    fetchUpdates()
+  }, []) // O array para o useEffect rodar apenas uma vez
+
   return (
     <div className="bg-white text-gray-800">
       {/* Hero com imagem e sobreposição */}
@@ -55,6 +81,42 @@ export default function Solucao() {
         </p>
       </section>
 
+      {/* Nova Seção: Últimas Atualizações e Funcionalidades */}
+      <section className="py-16 px-6 lg:px-20 bg-white">
+        <h2 className="text-center text-3xl font-bold text-purple-600 mb-12 flex items-center justify-center">
+          <FaRegNewspaper className="mr-3 text-purple-600" /> Últimas Atualizações do Projeto
+        </h2>
+
+        {loadingUpdates && (
+          <p className="text-center text-gray-600">Carregando atualizações...</p>
+        )}
+
+        {errorUpdates && (
+          <p className="text-center text-red-600">{errorUpdates}</p>
+        )}
+
+        {!loadingUpdates && !errorUpdates && updates.length === 0 && (
+          <p className="text-center text-gray-600">Nenhuma atualização disponível ainda.</p>
+        )}
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {updates.map((update) => (
+            <div key={update.id} className="bg-purple-50 p-6 rounded-lg shadow-md shadow-purple-200 hover:shadow-xl transition flex flex-col">
+              <img
+                src={update.imagemUrl}
+                alt={update.titulo}
+                className="w-full h-48 object-cover rounded-md mb-4"
+              />
+              <h3 className="text-xl font-semibold text-purple-800 mb-2">{update.titulo}</h3>
+              <p className="text-gray-700 text-sm flex-grow">{update.descricao}</p>
+              <p className="text-gray-500 text-xs mt-3">
+                Adicionado em: {new Date(update.data).toLocaleDateString()}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Missão */}
       <section className="py-16 px-6 lg:px-20 text-center">
         <h4 className="text-2xl md:text-3xl font-bold text-cyan-700 mb-6">Nossa Missão</h4>
@@ -78,5 +140,5 @@ export default function Solucao() {
         </a>
       </section>
     </div>
-  );
+  )
 }
