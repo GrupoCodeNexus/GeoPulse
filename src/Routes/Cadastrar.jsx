@@ -45,6 +45,7 @@ export default function Cadastrar() { // Alterado de CadastrarPage para Cadastra
         setNomeColaborador("")
         setEmailColaborador("")
         setSenhaColaborador("")
+        alert(`O perfil do colaborador '${nomeColaborador}' foi adicionado com sucesso!`)
       } else {
         setCadastroColaboradorError(data.message || "Erro ao cadastrar colaborador.")
       }
@@ -95,12 +96,12 @@ export default function Cadastrar() { // Alterado de CadastrarPage para Cadastra
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div className="min-h-screen bg-gray-100 pt-14 px-6">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 my-36">
 
         {/* Seção de Cadastro de Novo Colaborador */}
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 flex items-center justify-center">
+        <div className="bg-cyan-50 p-8 rounded-lg shadow-lg m-3.5 md:m-1 shadow-cyan-200 hover:shadow-xl transition">
+          <h2 className="text-2xl font-extrabold mb-6 text-center text-cyan-800 flex items-center justify-center">
             <FaUserPlus className="mr-3 text-blue-600" /> Cadastrar Novo Colaborador
           </h2>
 
@@ -154,7 +155,7 @@ export default function Cadastrar() { // Alterado de CadastrarPage para Cadastra
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition flex items-center justify-center"
+              className="w-full mt-8 bg-cyan-600 text-white py-2 rounded-md shadow-md shadow-cyan-200 hover:shadow-lg hover:bg-cyan-700 transition flex items-center justify-center cursor-pointer"
               disabled={loadingColaborador}
             >
               {loadingColaborador ? (
@@ -170,8 +171,8 @@ export default function Cadastrar() { // Alterado de CadastrarPage para Cadastra
         </div>
 
         {/* Seção de Adicionar Últimas Atualizações e Funcionalidades */}
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 flex items-center justify-center">
+        <div className="bg-purple-100 p-8 rounded-lg shadow-lg mx-3.5 md:mx-1 shadow-purple-300 hover:shadow-xl transition">
+          <h2 className="text-2xl font-extrabold mb-6 text-center text-purple-800 flex items-center justify-center">
             <FaRegNewspaper className="mr-3 text-purple-600" /> Adicionar Atualização do Projeto
           </h2>
 
@@ -225,7 +226,7 @@ export default function Cadastrar() { // Alterado de CadastrarPage para Cadastra
 
             <button
               type="submit"
-              className="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition flex items-center justify-center"
+              className="w-full bg-purple-600 text-white py-2 rounded-md shadow-md shadow-purple-300 hover:bg-purple-700 hover:shadow-lg transition flex items-center justify-center cursor-pointer"
               disabled={loadingAtualizacao}
             >
               {loadingAtualizacao ? (
