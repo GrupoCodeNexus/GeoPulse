@@ -56,7 +56,7 @@ export default function Home() {
           <div className="bg-cyan-50 rounded-xl shadow-sm shadow-cyan-50 p-6 text-center hover:shadow-lg transition">
             <FaGlobeAmericas className="text-cyan-400 text-4xl mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Visão Global</h3>
-            <p className="text-gray-600 text-sm">Visamos salvar vidas mundialmente, traznendo maior segurança internacional.</p>
+            <p className="text-gray-600 text-sm">Visamos salvar vidas mundialmente, trazendo maior segurança internacional.</p>
           </div>
 
           <div className="bg-cyan-100 rounded-xl shadow-sm shadow-cyan-100 p-6 text-center hover:shadow-lg transition">
