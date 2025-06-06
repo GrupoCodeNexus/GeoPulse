@@ -100,21 +100,24 @@ export default function Solucao() {
         )}
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Inverter a ordem das útltimas atualizações */}
-          {updates.slice().reverse().map((update) => (
-            <div key={update.id} className="bg-purple-50 p-6 rounded-lg shadow-md shadow-purple-200 hover:shadow-xl transition flex flex-col">
-              <img
-                src={update.imagemUrl}
-                alt={update.titulo}
-                className="w-full h-48 object-cover rounded-md mb-4"
-              />
-              <h3 className="text-xl font-semibold text-purple-800 mb-2">{update.titulo}</h3>
-              <p className="text-gray-700 text-sm flex-grow">{update.descricao}</p>
-              <p className="text-gray-500 text-xs mt-3">
-                Adicionado em: {new Date(update.data).toLocaleDateString()}
-              </p>
-            </div>
-          ))}
+          {/* Cria uma cópia do array e ordena pela data em ordem decrescente */}
+          {updates
+            .slice() // Cria uma cópia do array para não modificar o estado original
+            .sort((a, b) => new Date(b.data) - new Date(a.data)) // Ordena do mais recente para o menos recente com base na data
+            .map((update) => (
+              <div key={update.id} className="bg-purple-50 p-6 rounded-lg shadow-md shadow-purple-200 hover:shadow-xl transition flex flex-col">
+                <img
+                  src={update.imagemUrl}
+                  alt={update.titulo}
+                  className="w-full h-48 object-cover rounded-md mb-4"
+                />
+                <h3 className="text-xl font-semibold text-purple-800 mb-2">{update.titulo}</h3>
+                <p className="text-gray-700 text-sm flex-grow">{update.descricao}</p>
+                <p className="text-gray-500 text-xs mt-3">
+                  Adicionado em: {new Date(update.data).toLocaleDateString()}
+                </p>
+              </div>
+            ))}
         </div>
       </section>
 
