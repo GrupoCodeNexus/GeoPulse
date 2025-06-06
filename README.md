@@ -1,29 +1,41 @@
 # ♻️ Global Solution | Protech the Future - Turma 1ESPA
 
-#### 🔗 Link para a pag: 
-#### 🔗 Link do repositório do projeto: https://github.com/GrupoCodeNexus/GS-WebDev25
+Este repositório apresenta o **site de divulgação** da nossa solução tecnológica inovadora, desenvolvida como parte do desafio **Global Solution da FIAP**. Em colaboração com a IBM, Defesa Civil de Santo André, Médicos Sem Fronteiras, INPE e Corpo de Bombeiros de São Paulo, nosso principal objetivo é **mitigar e prevenir tragédias através do monitoramento ambiental em tempo real**.
 
-## 👨🏾‍🏫 Professor: 
-- Wellington Cidade
+---
 
-## Tecnologias utilizadas
-- [React + Vite](https://vite.dev/guide/)
-- [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite)
-- React Icons
-- React Router Dom
+## Funcionalidades do Site
 
-## 📋 Descrição do Projeto:
+Nosso site de divulgação foi projetado para ser uma plataforma informativa e interativa. Como funcionalidade principal, ele inclui um sistema para **cadastro de novas atualizações do projeto**. Este sistema é suportado por um servidor backend local desenvolvido com **Node.js**.
 
+Para gerenciar essas atualizações, criamos um **sistema de login para 'colaboradores'**. Após a autenticação, o colaborador é redirecionado para uma página de cadastros que oferece dois formulários distintos: um para a **criação de novas atualizações** sobre o projeto e outro para o **registro de novos colaboradores**.
 
-## Como instalar o projeto?
+#### 🔗 Link do repositório do projeto principal: [GeoPulse - Solução de Monitoramento](https://github.com/GrupoCodeNexus/GeoPulse)
 
-__Pré requisito:__
-- __[Node.js](https://nodejs.org/pt)__ instalado 
+---
 
-Primeiramente, confira se o Node.js está instalado em sua máquina acessando no seu terminal digite os seguintes comandos:
+## Tecnologias Utilizadas
+
+Para construir este site, utilizamos as seguintes tecnologias:
+
+* [**React + Vite:**](https://vitejs.dev/guide/) Ferramentas para construir interfaces de usuário rápidas e eficientes.
+* [**Tailwind CSS:**](https://tailwindcss.com/docs/installation/using-vite) Para a estilização e responsividade do site
+* [**Node.js:**](https://nodejs.org/pt) Para a criação do nosso servidor backend local, que gerencia o sistema de cadastro de atualizações e colaboradores.
+
+---
+
+## Como Instalar e Rodar o Projeto Localmente?
+
+Para que você possa explorar todas as funcionalidades do nosso site, siga os passos abaixo:
+
+### Pré-requisito:
+
+* Certifique-se de ter o **[Node.js](https://nodejs.org/pt)** instalado em sua máquina.
+
+Você pode verificar a versão do Node.js instalada abrindo seu terminal e digitando:
 
 ```bash
-node --version #Para verificar a versão do Node
+node --version # Para verificar a versão do Node.js
 ```
 
 __1.__ Clone e acesso o projeto com:
@@ -57,6 +69,8 @@ npm install     # Instala as dependências
 node sever.js   # Rodar o servidor na Porta 3000
 ```
 
+---
+
 ### **Login** _Área do colaborador_
 
 **Pré-requisito:* Servidor backend ``NODE.js`` rodando!*
@@ -72,6 +86,7 @@ dev@gmail.com
 1234
 ````
 
+---
 
 ## 👨🏽‍💻 Membros do Grupo - **Code Nexus**:
 - [**Francisco Vargas**](https://github.com/Franciscov25) - RM560322
