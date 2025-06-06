@@ -1,3 +1,30 @@
 [
-  
+  {
+    "id": "7871072c-7d0e-47e8-a699-bbfcc2d6e513",
+    "titulo": "DashBoard em PYTHON com alertas",
+    "descricao": "Utilizando python criamo um monitoramento de alertas inteligente por meio da análise de dados visando prever enchentes e fortes tempestades.",
+    "imagemUrl": "https://github.com/GrupoCodeNexus/GeoPulse/blob/main/src/assets/dashPYTHON.png?raw=true",
+    "data": "2025-06-04T17:59:09.607Z"
+  },
+  {
+    "id": "6675f8a7-886b-486c-a2b6-3d76c838977d",
+    "titulo": "Criação de Funções matemáticas",
+    "descricao": "Em calculo usamos funções matemáticas para calcular níveis de volume de água e umidade ao decorrer do tempo.",
+    "imagemUrl": "https://github.com/GrupoCodeNexus/GeoPulse/blob/main/src/assets/funcaoCalculo.png?raw=true",
+    "data": "2025-06-02T05:43:48.589Z"
+  },
+  {
+    "id": "bf8c34be-bbaa-4971-9ac5-0ee6c57a5a28",
+    "titulo": "Finalização do Protótipo de Sitema embarcado",
+    "descricao": "Para a matéria de EDGE criamos um sistema embarcado que seria responsável pela leitura climatica e gasoso do ambiente para a geração de alertas e dashboards em tempo real",
+    "imagemUrl": "https://github.com/GrupoCodeNexus/GeoPulse/blob/main/src/assets/simuladorEDGE.png?raw=true",
+    "data": "2025-05-31T05:37:16.980Z"
+  },
+  {
+    "id": "97990ffa-82ef-439c-b255-75e76e872011",
+    "titulo": "Escopo do Projeto GeoPulse",
+    "descricao": "Para a diciplina de Software & TX Design demos inicio ao escopo do projeto GeoPulse",
+    "imagemUrl": "https://github.com/GrupoCodeNexus/GeoPulse/blob/main/src/assets/escopoProjeto.png?raw=true",
+    "data": "2025-05-28T21:38:55.359Z"
+  }
 ]
