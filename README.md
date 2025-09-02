@@ -2,13 +2,20 @@
 
 Este repositório apresenta o **site de divulgação** da nossa solução tecnológica inovadora, desenvolvida como parte do desafio **Global Solution da FIAP**. Em colaboração com a IBM, Defesa Civil de Santo André, Médicos Sem Fronteiras, INPE e Corpo de Bombeiros de São Paulo, nosso principal objetivo é **mitigar e prevenir tragédias através do monitoramento ambiental em tempo real**.
 
+<img width="1843" height="938" alt="image" src="https://github.com/user-attachments/assets/e1657aec-8df4-42c8-ab32-88ce36a3a63c" />
+
 ---
 
 ## Funcionalidades do Site
 
 Nosso site de divulgação foi projetado para ser uma plataforma informativa e interativa. Como funcionalidade principal, ele inclui um sistema para **cadastro de novas atualizações do projeto**. Este sistema é suportado por um servidor backend local desenvolvido com **Node.js**.
 
+<img width="1029" height="876" alt="image" src="https://github.com/user-attachments/assets/13eb0746-c134-4f70-a009-923d50d43361" />
+
 Para gerenciar essas atualizações, criamos um **sistema de login para 'colaboradores'**. Após a autenticação, o colaborador é redirecionado para uma página de cadastros que oferece dois formulários distintos: um para a **criação de novas atualizações** sobre o projeto e outro para o **registro de novos colaboradores**.
+
+<img width="1074" height="731" alt="image" src="https://github.com/user-attachments/assets/d4c622a0-491a-4a78-b853-dfeefd489ccd" />
+
 
 #### 🔗 Link do repositório do projeto principal: [GeoPulse - Solução de Monitoramento](https://github.com/GrupoCodeNexus/GeoPulse)
 
